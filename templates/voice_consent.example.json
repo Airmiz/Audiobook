@@ -1,0 +1,8 @@
+{
+  "speaker_name": "Jane Example",
+  "consent_granted": true,
+  "rights_confirmed": true,
+  "usage_scope": "I own this voice and authorize cloning for my audiobook project.",
+  "consent_date": "2026-02-28",
+  "notes": "Keep this file with project records."
+}

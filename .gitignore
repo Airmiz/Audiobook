@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+
+# Generated outputs and large audio artifacts
+output/
+*.mp3
+*.wav
+*.aiff
+*.flac
+*.m4a
