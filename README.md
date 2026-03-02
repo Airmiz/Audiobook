@@ -2,6 +2,15 @@
 
 Create an audiobook from a `.txt` file with chunked synthesis and female-style voice presets.
 
+## Project Layout
+
+- `scripts/` CLI tools
+- `samples/` test text samples
+- `books/` source PDFs/TXTs
+- `output/` generated audio
+- `docs/` setup guides
+- `templates/` config templates
+
 ## Requirements
 
 - Python 3.10+
@@ -19,7 +28,7 @@ Optional engine:
 ## Quick Start
 
 ```bash
-python audiobook_maker.py \
+python3 scripts/audiobook_maker.py \
   --input book.txt \
   --output output/speech/my_audiobook.mp3 \
   --engine edge \
@@ -31,9 +40,9 @@ python audiobook_maker.py \
 Use the included sample paragraph to quickly test a voice preset:
 
 ```bash
-python audiobook_maker.py \
-  --input /Users/jordansyring/Documents/Audiobook/voice_test_paragraph.txt \
-  --output /Users/jordansyring/Documents/Audiobook/output/speech/voice_test.mp3 \
+python3 scripts/audiobook_maker.py \
+  --input samples/voice_test_paragraph.txt \
+  --output output/speech/voice_test.mp3 \
   --engine edge \
   --preset warm
 ```
@@ -50,7 +59,7 @@ Override the exact voice:
 List available voices:
 
 ```bash
-python audiobook_maker.py --engine edge --list-voices
+python3 scripts/audiobook_maker.py --engine edge --list-voices
 ```
 
 ## Useful Options
@@ -73,18 +82,18 @@ python audiobook_maker.py --engine edge --list-voices
 Convert a PDF to a text file with the same name:
 
 ```bash
-python3 /Users/jordansyring/Documents/Audiobook/pdf_to_txt.py \
-  "/Users/jordansyring/Documents/Audiobook/Forgotten Gods Blue Futanari Series Book 2 Gabi Prevot.pdf"
+python3 scripts/pdf_to_txt.py \
+  "books/Forgotten Gods Blue Futanari Series Book 2 Gabi Prevot.pdf"
 ```
 
 This creates:
-- `/Users/jordansyring/Documents/Audiobook/Forgotten Gods Blue Futanari Series Book 2 Gabi Prevot.txt`
+- `books/Forgotten Gods Blue Futanari Series Book 2 Gabi Prevot.txt`
 
 If needed, overwrite existing output:
 
 ```bash
-python3 /Users/jordansyring/Documents/Audiobook/pdf_to_txt.py \
-  "/Users/jordansyring/Documents/Audiobook/Forgotten Gods Blue Futanari Series Book 2 Gabi Prevot.pdf" \
+python3 scripts/pdf_to_txt.py \
+  "books/Forgotten Gods Blue Futanari Series Book 2 Gabi Prevot.pdf" \
   --overwrite
 ```
 
@@ -92,6 +101,6 @@ python3 /Users/jordansyring/Documents/Audiobook/pdf_to_txt.py \
 
 If you need custom voice cloning (with explicit rights/consent), use:
 
-- [voice_clone_audiobook.py](/Users/jordansyring/Documents/Audiobook/voice_clone_audiobook.py)
+- [voice_clone_audiobook.py](/Users/jordansyring/Documents/Audiobook/scripts/voice_clone_audiobook.py)
 - [voice-clone-setup.md](/Users/jordansyring/Documents/Audiobook/docs/voice-clone-setup.md)
 - [voice_consent.example.json](/Users/jordansyring/Documents/Audiobook/templates/voice_consent.example.json)
