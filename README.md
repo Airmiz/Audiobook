@@ -122,3 +122,53 @@ Then open:
 ```text
 http://127.0.0.1:8000
 ```
+
+## Publish Website So Anyone Can Stream
+
+GitHub Pages is static-only, so use this split:
+- `web-player/` on GitHub Pages
+- large `.wav` files on public object storage (recommended: Cloudflare R2)
+
+### 1) Upload `.wav` files to public storage
+
+Upload files from `output/finished` to your public bucket/domain.
+Example public base URL:
+
+```text
+https://pub-xxxxxxxxxxxxxxxx.r2.dev
+```
+
+### 2) Generate static manifest for the website
+
+```bash
+python3 scripts/generate_books_manifest.py \
+  --books-dir output/finished \
+  --base-url https://pub-xxxxxxxxxxxxxxxx.r2.dev \
+  --out web-player/books.json
+```
+
+### 3) Commit and push website files to GitHub
+
+```bash
+git add web-player scripts/generate_books_manifest.py README.md
+git commit -m "Add public web player manifest flow"
+git push origin main
+```
+
+### 4) Enable GitHub Pages
+
+- GitHub repo -> `Settings` -> `Pages`
+- `Source`: `Deploy from a branch`
+- Branch: `main`
+- Folder: `/web-player`
+
+Your public site will be available at:
+
+```text
+https://<your-github-username>.github.io/<repo-name>/
+```
+
+### Notes
+
+- Player keeps resume time + bookmarks in each listener's browser localStorage.
+- `web-player/app.js` supports both local mode (`/api/books`) and public mode (`/books.json`).
