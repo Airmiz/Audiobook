@@ -104,3 +104,21 @@ If you need custom voice cloning (with explicit rights/consent), use:
 - [voice_clone_audiobook.py](/Users/jordansyring/Documents/Audiobook/scripts/voice_clone_audiobook.py)
 - [voice-clone-setup.md](/Users/jordansyring/Documents/Audiobook/docs/voice-clone-setup.md)
 - [voice_consent.example.json](/Users/jordansyring/Documents/Audiobook/templates/voice_consent.example.json)
+
+## Local Audiobook Website Player
+
+Stream finished audiobooks in your browser with:
+- instant resume from last stop time
+- saved timestamp bookmarks (tag + jump back)
+
+Run:
+
+```bash
+python3 scripts/audiobook_web_player.py --books-dir output/finished --port 8000
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000
+```

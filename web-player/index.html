@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audiobook Player</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Audiobook Player</h1>
+      <p>Stream from your finished folder, auto-resume, and jump to saved tags.</p>
+    </header>
+
+    <section class="panel">
+      <label for="bookSelect">Book</label>
+      <select id="bookSelect"></select>
+      <button id="reloadBtn" type="button">Reload Library</button>
+    </section>
+
+    <section class="panel">
+      <audio id="audio" controls preload="metadata"></audio>
+      <div class="row">
+        <span id="currentTime">00:00</span>
+        <span>/</span>
+        <span id="duration">00:00</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Bookmarks</h2>
+      <div class="bookmark-form">
+        <input id="bookmarkLabel" type="text" maxlength="60" placeholder="Bookmark name (optional)">
+        <button id="saveBookmarkBtn" type="button">Save Current Time</button>
+      </div>
+      <ul id="bookmarkList" class="bookmark-list"></ul>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

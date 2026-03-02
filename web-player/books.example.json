@@ -1,0 +1,12 @@
+{
+  "books": [
+    {
+      "name": "Your Book 1.wav",
+      "url": "https://example-public-storage/Your%20Book%201.wav"
+    },
+    {
+      "name": "Your Book 2.wav",
+      "url": "https://example-public-storage/Your%20Book%202.wav"
+    }
+  ]
+}
